@@ -1,0 +1,8 @@
+{
+    "[less]": {
+        "less.compile":{
+            "outExt":".wxss"
+        },
+        "editor.suggest.insertMode": "replace"
+    }
+}

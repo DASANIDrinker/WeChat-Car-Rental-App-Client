@@ -1,0 +1,35 @@
+/* pages/uploadImg/uploadImg.wxss */
+page{
+	background-color:rgba(253, 185, 39, 255);
+}
+.content{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.image{
+	border-radius:3ch;
+}
+.text{
+	margin-top: 20rpx!important;
+	height: 80rpx!important;
+	text-align:center!important;
+	color: #012ea5!important;
+	font-size: 40rpx!important;
+	font-weight: 550!important;
+}
+.button {
+	margin-top: 10%!important;
+	width: 70%!important;
+	height: 100rpx!important;
+	/* height: 1rpx!important; */
+	text-align: center!important;
+	display: flex!important;
+	justify-content: center!important;
+	color: white !important;
+    background-color: #012ea5 !important;
+    font-size: 32rpx !important;
+    font-weight: 550 !important;
+    border-radius: 1em !important;
+}

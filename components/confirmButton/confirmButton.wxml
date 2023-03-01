@@ -1,0 +1,14 @@
+<!--components/confirmButton.wxml-->
+    <van-cell>
+        <van-col span = "10">
+            <van-button custom-class = "button1" bind:click = "onClickCancel">
+                取消
+            </van-button>
+        </van-col>
+        <van-col span = "14">
+            <van-button custom-class = "button2" bind:click = "onClickConfirm">
+                确认
+            </van-button>
+        </van-col>
+    </van-cell>
+

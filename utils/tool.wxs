@@ -1,0 +1,23 @@
+function splitDate(str){
+    var arr = str.split("-")
+
+    var x = str.indexOf("-")
+    var firstStr = str.slice(0,x)
+    var secondStr = str.slice(x+2,str.length)
+    var y = firstStr.indexOf("/")
+    var z = secondStr.indexOf("/")
+    var firstMonth = firstStr.slice(0,y)
+    var firstDate = firstStr.slice(y+1,firstStr.length)
+    var secondMonth = secondStr.slice(0,z)
+    var secondDate = secondStr.slice(z+1,secondStr.length)
+    // console.log('firstStr is '+firstStr)
+    // console.log('secondStr is '+secondStr)
+    // console.log('fisrtMonth is '+firstMonth)
+    // console.log('firstDate is '+firstDate)
+    // console.log('secondMonth is '+secondMonth)
+    // console.log('secondDate is '+secondDate)
+    return arr;
+}
+module.exports = {
+    splitDate:splitDate
+}

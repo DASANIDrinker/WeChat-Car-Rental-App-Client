@@ -1,0 +1,9 @@
+/* components/carBlock.wxss */
+.image{
+    width: 80rpx;
+    /* float: left; */
+    height: 100rpx;
+}
+.group{
+    /* float: left; */
+}

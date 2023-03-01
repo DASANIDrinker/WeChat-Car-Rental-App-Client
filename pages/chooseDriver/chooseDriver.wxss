@@ -1,0 +1,37 @@
+/* pages/chooseDriver/chooseDriver.wxss */
+page{
+	background-color: rgba(253, 185, 39, 255);
+}
+
+.group{
+	/* display: flex!important;
+	justify-content: center!important;
+	align-items: center!important; */
+	margin-top: 360rpx!important;
+	/* display: flex!important; */
+	/* flex-direction: column!important; */
+	/* width:500rpx!important; */
+	/* justify-content: center!important; */
+	/* align-items: center!important;  */
+}
+.text{
+	color: black;
+	font-size: 34rpx;
+	font-weight: 500;
+	text-align: left;
+	padding-top: 15rpx;
+
+}
+.content{
+	color: black;
+	font-size: 30rpx;
+	text-align: left;
+	/* word-wrap: break-word; */
+	/* word-break: break-all; */
+	/* white-space: pre-line; */
+
+}
+
+.deleteButton{
+	margin-top: 20rpx;
+}

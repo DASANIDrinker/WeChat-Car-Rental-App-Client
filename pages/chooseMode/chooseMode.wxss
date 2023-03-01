@@ -1,0 +1,56 @@
+/* pages/chooseMode/chooseMode.wxss */
+page{
+	background-color: rgba(253, 185, 39, 255);
+}
+/* .middle{
+	display: flex!important;
+	justify-content: center!important;
+	align-items: center!important;
+	height: 300rpx!important;
+} */
+.middle{
+	/* height:400rpx!important; */
+	margin-top: 360rpx!important;
+}
+
+.title{
+	font-size: 36rpx!important;
+	text-align: left!important;
+	font-weight: 550!important;
+	color: black!important;
+}
+.content{
+	font-size: 28rpx!important;
+	text-align: left!important;
+	font-weight: 400!important;
+	color: black!important;
+	word-wrap: break-word;
+	word-break: break-all;
+	white-space: pre-line;
+}
+.button {
+	/* width: 260rpx!important; */
+	width: 100%!important;
+    text-align: center!important;
+    color: white !important;
+    background-color:#012ea5 !important;
+    font-size: 36rpx !important;
+    font-weight: 550 !important;
+    /* border-radius: 1em !important; */
+}
+/* .row{
+	background-color: #012ea5!important;
+} */
+
+.chooseDriver{
+	margin-top: 350rpx!important;
+	margin-right: 50rpx!important;
+	text-align: right;
+}
+/* .driverButton{
+	color: white!important;
+	background-color: #012ea5!important;
+	border-radius: 10rpx!important;
+	font-size: 28rpx!important;
+
+} */

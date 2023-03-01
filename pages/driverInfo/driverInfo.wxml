@@ -1,0 +1,57 @@
+<!--pages/driverInfo/driverInfo.wxml-->
+<van-cell-group>
+    <!-- 用户姓名栏 -->
+    <van-cell border = "{{false}}">
+        <van-field 
+        wx:if="{{display}}"
+        model:userName="{{ userName }}" 
+        placeholder="请输入用户姓名" 
+        border="{{ false }}"
+        label="用户姓名" 
+        label-class="label" 
+        input-class="input" 
+        clearable
+        maxlength = "6"
+        bind:clear = "clearUserName"
+        bind:change = "changeUserName"
+        error-message="{{errorMessageUser}}"/>
+    </van-cell>
+    <!-- 身份证号栏 -->
+    <van-cell border = "{{false}}">
+        <van-field
+        wx:if="{{display}}"
+        model:id="{{ id }}" 
+        placeholder="请输入身份证号" 
+        border="{{ false }}" 
+        label="身份证号" 
+        label-class="label" 
+        input-class="input" 
+        clearable
+        maxlength = "18"
+        bind:clear = "clearId"
+        bind:change = "changeId"
+        error-message="{{errorMessageId}}"/>
+    </van-cell>
+    <!-- 电话号码栏 -->
+    <van-cell border = "{{false}}">
+        <van-field 
+        model:phone="{{ phone }}" 
+        placeholder="请输入电话号码" 
+        border="{{ false }}" 
+        label="电话号码" 
+        label-class="label" 
+        input-class="input" 
+        clearable
+        maxlength = "11"
+        bind:clear = "clearPhone"
+        bind:change = "changePhone"
+        error-message="{{errorMessagePhone}}"/>
+    </van-cell>
+
+    <van-cell border="{{false}}">
+        <van-button custom-class="button" bindtap="saveInfo">
+            保存
+        </van-button>
+    </van-cell>
+
+</van-cell-group>

@@ -1,0 +1,9 @@
+<!--pages/confirmation/confirmation.wxml-->
+
+<van-button open-type="getPhoneNumber" bindgetphonenumber="getUserProfileByPhone" custom-class = "button">
+    手机号一键登录
+</van-button>
+
+<van-icon class-prefix="iconfont" name="iconfont icon-weixin" custom-class = "icon" bindtap="getUserProfile">
+    <!-- <van-toast id="van-toast" /> -->
+</van-icon>

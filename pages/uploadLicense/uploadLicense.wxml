@@ -1,0 +1,13 @@
+<!--pages/uploadLicense/uploadLicense.wxml-->
+<view class="content">
+	<van-row custom-class = "text">
+		{{notice}}
+	</van-row>
+	<van-row>
+		<image src="{{licenseImg}}" mode="widthFix" class="image"  bindtap="tapPhoto"></image>
+	</van-row>
+</view>
+
+<van-button custom-class = "button" bindtap="onSave">
+    保存机动车驾驶证
+</van-button>

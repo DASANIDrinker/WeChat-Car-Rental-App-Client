@@ -1,0 +1,95 @@
+<!--pages/home/home.wxml-->
+<!-- 通知栏 -->
+<van-notice-bar
+  text="咨询热线: 010-53221862 / 010-53221861"
+  custom-class = "notice-bar"
+/>
+<!-- 循环播放组件 -->
+<!-- indicator-dots="true" indicator-color="#012EA5" indicator-active-color="rgba(253,185,39,255)"  -->
+<swiper autoplay="true" interval="4000" circular="true">
+    <swiper-item wx:for="{{swiperSrcList}}" wx:key="*this"> 
+        <image src="{{item}}"></image>
+    </swiper-item>
+</swiper>
+
+<!--时间选择框组件-->
+<!-- dateCurrent="{{date}}" dateEnd="{{date}}" monthCurrent="{{month+1}}" monthEnd="{{month+1}}" -->
+<view class="box1" >
+    <timeSelector id="selectTimeComponent" ></timeSelector>
+</view>
+
+
+<view class="box2">
+    <van-cell-group inset>
+        <van-row>
+            <van-cell size="large">
+                <van-col span="12" class="cell7">
+                    <view class="font">
+                        租车指南
+                    </view>
+                    <view bindtap = "navigateGuide" class="cell9">
+                        <van-icon size = "83" class-prefix = "iconfont" name = "iconfont icon-zucheguize" class="icon1"></van-icon>
+                    </view>
+                </van-col>
+                <van-col span="12" class="cell7">
+                    <view class="font">
+                        关于我们
+                    </view>
+                    <view bindtap="navigateAboutUs" class="cell9">
+                        <van-icon size = "88" class-prefix = "iconfont" name = "iconfont icon-guanyuwomen1" class="icon1"></van-icon>
+                    </view>
+                </van-col>
+            </van-cell>
+        </van-row>
+    </van-cell-group>
+</view>
+
+<view style="background-color: #B9d3ee;">
+    <!-- <van-cell-group> -->
+        <!-- <van-row>
+            <van-col span="24">
+                <view style="text-align: center;font-size: large;">
+                    东方时尚省心之选
+                </view>
+            </van-col>
+        </van-row> -->
+        <van-row>
+            <van-col span ="8">
+                <view class="cell8">
+                    <van-icon size = "30" class-prefix = "iconfont" name = "iconfont icon-kefu1" style="color: #012EA5;"/> 
+                    <view class="font1">售后保障</view>
+                    <view class="font2">7*24小时人工服务</view>
+                    <!-- <view class="font2">人工服务</view> -->
+                </view>
+            </van-col>
+            <van-col span ="8">
+                <view class="cell8">
+                    <van-icon size = "30" class-prefix = "iconfont" name = "iconfont icon-pinpaizhuanxiang"style="color: #012EA5;" ></van-icon>
+                    <view class="font1">优质品牌</view>
+                    <view class="font2">五年老店 上市品牌</view>
+                    <!-- <view class="font2">上市品牌</view> -->
+                </view>
+            </van-col>
+            <van-col span ="8">
+                <view class="cell8">
+                    <van-icon size = "30" class-prefix = "iconfont" name = "iconfont icon-fuli" style="color: #012EA5;"></van-icon>
+                    <view class="font1">学员福利</view>
+                    <view class="font2">驾校学员 更多折扣</view>
+                    <!-- <view class="font2">更多折扣</view> -->
+                </view>
+            </van-col>
+            
+            
+            
+        
+        </van-row>
+    <!-- </van-cell-group> -->
+</view>
+
+
+
+
+
+
+    
+

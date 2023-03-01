@@ -1,0 +1,73 @@
+/* pages/login/login.wxss */
+.button {
+    margin-top: -80rpx!important;
+    /* margin-top: 100rpx!important; */
+    width: 90%!important;
+    height: 90rpx!important;
+    /* text-align: center!important; */
+    display: flex!important;
+    justify-content: center!important;
+    color: #012ea5 !important;
+    background-color: rgba(253, 185, 39, 255) !important;
+    font-size: 32rpx !important;
+    font-weight: 550 !important;
+    border-radius: 1em !important;
+}
+/* .mine-nouserinfo-avatar {
+    width: 128rpx;
+    height: 128rpx;
+    border-radius: 50%;
+    flex-shrink: 0;
+    background-repeat:no-repeat;
+    background-position: center;
+    color:transparent;
+    background-size: 50%;
+} */
+
+.icon{
+    /* height: 85%!important;
+    width: 20%!important; */
+    /* margin-top: 20%!important; */
+    /* text-align: center!important;
+    display: flex!important;
+    justify-content: center!important; */
+    margin-top: 50rpx!important;
+    color: #012ea5!important;
+    font-size: 45px!important;
+}
+/* .iconfont{
+    height: 85%!important;
+    width: 20%!important;
+    display: flex!important;
+    justify-content: center!important;
+    color: #012ea5!important;
+} */
+.view{
+    /* height: 85%;
+    width: 20%; */
+    margin-top: 55%;
+    display: flex;
+    justify-content: center;
+}
+.row{
+    font-size: 26rpx!important;
+    color: grey!important;
+    display: flex!important;
+    justify-content: center!important;
+}
+.contract{
+    margin-top: 20rpx;
+}
+
+.image{
+    display: flex;
+    justify-content: center;
+    height: 400px;
+    align-items: center;
+}
+.image image{
+    width: 40%;
+    height: auto;
+    border-radius: 3em;
+    /* box-shadow: 10 10 10rpx 10rpx #012ea5 inset; */
+}

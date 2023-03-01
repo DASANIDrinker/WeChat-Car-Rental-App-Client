@@ -1,0 +1,89 @@
+<!--components/selectTime.wxml-->
+
+
+<!-- 选择时间地点组件 -->
+<!-- <view class="box1"> -->
+    <van-cell-group inset>    
+        <!--取车地点组件-->
+        <van-row>
+            <van-cell size="large">
+                <van-col span="8" bindtap="showToast">
+                    <view class="cell1" >取车城市<van-toast id="van-toast" /></view>
+                    <view class="cell2" >北京<van-toast id="van-toast"/>
+                        <van-icon size = "16" class-prefix = "iconfont" name = "iconfont icon-xiangxia" color = "#012ea5"></van-icon>
+                    </view>
+                </van-col>
+                <van-col span="16" bindtap="showToast">
+                    <view class="cell1" >取车地点</view>
+                    <view class="cell2">东方时尚驾校<van-toast id="van-toast" />
+                        <van-icon size = "16" class-prefix = "iconfont" name = "iconfont icon-xiangxia" color = "#012ea5"></van-icon>   
+                    </view>
+                </van-col>
+            </van-cell>
+        </van-row>
+
+        <!--取车时间组件-->
+        <view style="height: 150rpx;margin-top: 30rpx;">
+        <van-row>
+            <van-cell size="large" border ="{{false}}">
+                <van-col span="8" >
+                    <view class="cell2" bindtap="onDisplayCalendar" bind:click = "showPopup">{{monthCurrent}}月{{dateCurrent}}日</view>
+                    <view class="cell3" bindtap="onDisplayCalendar" bind:click = "showPopup">{{weekdayCurrent}}{{hourCurrent}}:{{minuteCurrent}}</view>
+                    <van-calendar
+                        show="{{ show }}"
+                        type="range"
+                        position = "top"
+                        bind:close="onClose"
+                        bind:confirm="onConfirm"
+                        color = "#012EA5"
+                        allow-same-day="true"
+                    ></van-calendar>
+                    <van-popup
+                        show="{{showPop}}"
+                        position="bottom"
+                        custom-style="height: 40%;"
+                        bind:close="onClosePop"
+                    >
+                    <!-- closeable -->
+                     <!-- :overlay = "false"
+                        overlay-style = "background-color:rgba(0,0,0,0)" -->
+                    <!-- <van-picker columns="{{ columns }}" bind:change="onChange" title = "取车时间"/> -->
+                    <van-cell>
+                        <van-col span = "12">
+                            <view class="cell11">取车时间</view>
+                        </van-col>
+                        <van-col span = "12">
+                            <view class="cell11">还车时间</view>
+                        </van-col>
+                    </van-cell>
+                    <van-picker columns="{{ columns }}" bind:change="onChange" bind:confirm="onConfirmPicker" bind:cancel="onCancelPicker" show-toolbar ="true" />
+                    </van-popup>
+                    
+                </van-col>
+                <van-col span="8">
+                    <view class="cell6">
+                    <view class="cell10">{{dayInBetween}}天</view>
+                    <van-icon size = "8" class-prefix = "iconfont" name = "iconfont icon-shuangxiang" color = "#012ea5"></van-icon>
+                    </view>
+                </van-col>
+                <van-col span="8">
+                    <view class="cell4" bindtap="onDisplayCalendar">{{monthEnd}}月{{dateEnd}}日</view>
+                    <view class="cell5" bindtap="onDisplayCalendar">{{weekdayEnd}}{{hourEnd}}:{{minuteEnd}}</view>
+                </van-col>
+            </van-cell>
+        </van-row>
+        </view>
+        
+        <van-row>
+            <view style="height: 150rpx;">
+                <van-cell border="{{false}}" center>
+                    <van-col span ="22" offset="1">
+                        <!-- color="lienar-gradient(to right, #1989FA,#012EA5)" -->
+                        <van-button type = "default" size="large" color = "#012EA5" bindtap="navigateCarPick"><view>立即租车</view></van-button>
+                    </van-col>
+                </van-cell>
+            </view>
+        </van-row>
+
+    </van-cell-group>
+<!-- </view> -->

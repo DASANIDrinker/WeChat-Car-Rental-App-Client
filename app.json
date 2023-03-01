@@ -1,0 +1,62 @@
+{
+    "pages": [
+        "pages/home/home",
+        "pages/account/account",
+        "pages/guide/guide",
+        "pages/aboutus/aboutus",
+        "pages/carPick/carPick",
+        "pages/uploadID/uploadID",
+        "pages/uploadLicense/uploadLicense",
+        "pages/login/login",
+        "pages/review/review",
+        "pages/driverInfo/driverInfo",
+        "pages/confirmation/confirmation",
+        "pages/chooseMode/chooseMode",
+        "pages/chooseDriver/chooseDriver"
+    ],
+    "window": {
+        "backgroundTextStyle": "dark",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "东方时尚汽车租赁",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "list": [
+            {
+                "pagePath": "pages/home/home",
+                "text": "首页",
+                "iconPath": "image/tabBar/home.png",
+                "selectedIconPath": "image/tabBar/home_active.png"
+            },
+            {
+                "pagePath": "pages/account/account",
+                "text": "我的",
+                "iconPath": "image/tabBar/account.png",
+                "selectedIconPath": "image/tabBar/account_active.png"
+            }
+        ],
+        "backgroundColor": "#FFFFFF",
+        "borderStyle": "white",
+        "color": "#000000",
+        "selectedColor": "#012EA5"
+    },
+    "sitemapLocation": "sitemap.json",
+    "usingComponents": {
+        "timeSelector": "./components/selectTime/selectTime",
+        "van-panel": "@vant/weapp/panel/index",
+        "van-cell": "@vant/weapp/cell/index",
+        "van-cell-group": "@vant/weapp/cell-group/index",
+        "van-button": "@vant/weapp/button/index",
+        "van-row": "@vant/weapp/row/index",
+        "van-col": "@vant/weapp/col/index",
+        "van-icon": "@vant/weapp/icon/index",
+        "van-collapse": "@vant/weapp/collapse/index",
+        "van-collapse-item": "@vant/weapp/collapse-item/index",
+        "van-toast": "@vant/weapp/toast/index",
+        "van-calendar": "@vant/weapp/calendar/index",
+        "van-datetime-picker": "@vant/weapp/datetime-picker/index",
+        "van-popup": "@vant/weapp/popup/index",
+        "van-picker": "@vant/weapp/picker/index",
+        "van-overlay": "@vant/weapp/overlay/index"
+    }
+}

@@ -1,0 +1,47 @@
+<!-- 东方时尚汽车租赁logo -->
+<view class = "image">
+    <image src="{{logoImg}}" mode="widthFix"></image>
+</view>
+
+<!-- 手机登录按钮 -->
+<view>
+    <van-button open-type="getPhoneNumber" bindgetphonenumber="getUserProfileByPhone" custom-class = "button">
+    手机号一键登录
+</van-button>
+<van-toast id="van-toast" />
+</view>
+
+
+<!-- <van-button custom-class="mine-nouserinfo-avatar" style="background-image:url(../../image/weChatIcon.jpg);" size="mini">
+    按钮
+</van-button> -->
+<!-- <button class="mine-nouserinfo-avatar" style="background-image:url(../../image/weChatIcon.jpg);" size="mini">
+    按钮
+</button> -->
+<!-- 微信登录按钮 -->
+<view class = "view">
+    <van-icon class-prefix="iconfont" name="iconfont icon-weixin" custom-class = "icon" bindtap="getUserProfile">
+        <!-- <van-toast id="van-toast" /> -->
+    </van-icon>
+   
+</view>
+<van-toast id="van-toast" />
+
+<!-- 隐私合同协议 -->
+<view class="contract">
+
+<!-- 隐私和服务协议 -->
+<van-row custom-class = "row">
+    <van-checkbox value="{{ checked }}"
+    bind:change="onChange"
+    checked-color="#012ea5"
+    icon-size="28rpx">
+</van-checkbox>
+        阅读并同意东方时尚汽车租赁公司的
+</van-row>
+<van-row custom-class = "row">
+        服务协议和隐私政策
+</van-row>
+</view>
+
+

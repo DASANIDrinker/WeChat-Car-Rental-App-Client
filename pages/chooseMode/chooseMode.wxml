@@ -1,0 +1,46 @@
+<!--pages/chooseMode/chooseMode.wxml-->
+<!-- <van-row custom-class = "chooseDriver">
+	<van-col offset = "16" span = "8">
+		<van-button custom-class = "driverButton">
+			选择驾驶员
+		</van-button>
+	</van-col>
+</van-row> -->
+
+<van-radio-group value="{{ radio }}" bind:change="onChange">
+	<van-cell-group inset custom-class="middle">
+		<van-cell clickable data-name="1" bind:click="onClick" border ="{{false}}">
+			<van-row custom-class="title">
+				在线下单
+			</van-row>
+			<van-row custom-class="content">
+				在线上传驾驶员身份证
+				在线上传驾驶员机动车驾驶证
+				在线支付订单
+			</van-row>
+			<van-radio slot="right-icon" name="1" checked-color="#012ea5" />
+
+
+		</van-cell>
+		<van-cell clickable data-name="2" bind:click="onClick" border ="{{false}}">
+			<van-row custom-class="title">
+				在线预订
+			</van-row>
+			<van-row custom-class="content">
+				到店审核驾驶员身份证
+				到店审核驾驶员机动车驾驶证
+				到店支付订单
+				线上支付定金80元
+				如未到店或未准时到店取车,定金不予退还
+			</van-row>
+			<van-radio slot="right-icon" name="2" checked-color="#012ea5" />
+		</van-cell>
+		<van-cell border ="{{false}}">
+		<van-row custom-class = "row">
+			<van-button custom-class="button" bindtap="confirm">
+                确认
+            </van-button>
+		</van-row>
+		</van-cell>
+	</van-cell-group>
+</van-radio-group>

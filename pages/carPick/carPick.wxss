@@ -1,0 +1,222 @@
+/* .van-cell--borderless{
+    background-color: #f1f0f7!important;
+} */
+/* .userinfo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+} */
+.icon1{
+    color: #012ea5;
+    text-align: left;
+    margin-top: 25rpx;
+}
+.icon2{
+    margin-top: 25rpx!important;
+}
+.box1{
+    color: black;
+    text-align: right;
+}
+.box2{
+    color: black;
+    text-align: center;
+
+}
+.box3{
+    color: black;
+    text-align: left;
+}
+.box4{
+    text-align: left!important;
+    font-size: 33rpx!important;
+    color: black!important;
+    font-weight: 545!important;    
+}
+.rowbox{
+    background-color: #f1f0f7!important;
+    color: #f1f0f7!important;
+}
+.col{
+    text-align: left;
+}
+/* 下拉菜单menu样式 */
+.van-dropdown-menu__item{
+    line-height: 50rpx!important;
+    font-size: 30rpx!important;
+    font-weight: 550!important;
+}
+/* 下拉菜单item样式 */
+.van-dropdown-item {
+    line-height: 80rpx!important;
+    font-size: 30rpx!important;
+    font-weight: bold!important;
+  }
+/* .van-dropdown-item--down{
+
+} */
+  /* 分类选择左侧导航栏 */
+.leftOptions{
+    /* !important代表使用外部样式类vant对于普通样式类的覆盖 */
+    /* 一般来说 微信小程序无法确定外部样式和普通样式的优先级
+    所以用!important来优先外部样式类 */
+    color: #012ea5!important;
+    line-height: 60rpx!important;
+    font-size: 30rpx!important;
+    font-weight: bold!important;
+}
+/* 分类选择右侧 */
+.rightOptions{
+    line-height: 80rpx!important;
+}
+/* 分类选择右侧被选中样式 */
+.rightActiveOptions{
+    line-height: 80rpx!important;
+    color:#012ea5!important;
+}
+.rent{
+    text-align: center!important;
+    font-size: 33rpx!important;
+    color: black!important;
+    font-weight: 545!important;   
+}
+/* 通过shadow-root找到的van-button样式 */
+.van-button{
+    width: 160rpx;
+    color: #4d6cc2;
+}
+.button{
+    width: 185rpx;
+    color: #4d6cc2;
+    border-radius: 2em;
+}
+/* 分类选择左侧导航栏单个item被选中的格式 */
+/* 以及品牌被选中格式 */
+.van-sidebar-item--selected{
+    /* color:rgba(253, 185, 39, 255)!important; */
+    border-color: rgba(253, 185, 39, 255)!important;
+    border-left-width: 50px;
+}
+/* 分类选择左侧导航栏的单个item */
+.van-sidebar-item{
+    /* height: 110rpx; */
+    text-align:justify;
+}
+/* .van-sidebar-item--hover{
+    border-color: rgba(253, 185, 39, 255)!important;
+} */
+#sort{
+    z-index: 200;
+}
+#brand{
+    /* 需要将大屏幕左侧导航z index为100的导航栏盖住 */
+    z-index: 200;
+}
+#price{
+    z-index: 200;
+}
+#more{
+    z-index: 200;
+}
+.left{
+    width: 25%;
+    float: left;
+    box-sizing: border-box;
+    background-color:rgb(241, 241, 241);
+}
+.left view{
+    height: 100rpx;
+    text-align: center;
+    position: relative;
+    /* 为了让scroll view里面的view被点击到 我们需要为他附一个比.left更大的zindex值 */
+    z-index: 100;
+    box-sizing: border-box;
+}
+/* .leftViewHover{
+    background-color: white;
+    border-left: rgba(253, 185, 39, 255);
+} */
+.scroll-view-iteminactive{
+    background-color:rgb(241, 241, 241);
+    padding-top: 30rpx;
+}
+.scroll-view-itemactive{
+    background-color: white;
+    border-left: 10rpx solid rgba(253, 185, 39, 255);
+    color: #012ea5;
+    font-size: medium;
+    font-weight: bold;
+    padding-top: 30rpx;
+}
+.right{
+    width: 75%;
+    float: right;
+    box-sizing: border-box;
+    background-color: rgba(253, 185, 39, 255);
+}
+
+.content{
+    width: 100%;
+    /* float:right; */
+    /* height: 220rpx; */
+    height: 230rpx;
+    /* border: 1rpx solid #efefef;
+    border-radius: 10rpx; */
+    margin-top:15rpx!important;
+    /* margin-left:10rpx!important; */
+    /* box-shadow: 10rpx 10rpx 10rpx #8d97ee; */   
+}
+/* .block{
+    
+} */
+.image{
+    width: 80rpx;
+    /* float: left; */
+    height: 100rpx;
+}
+
+.row1{
+    text-align: left!important;
+    font-size: 32rpx!important;
+    font-weight: 500!important;
+    color: black!important;
+}
+.row2{
+    text-align: left!important;
+    font-size: 28rpx!important;
+    font-weight: 450!important;
+    /* color: lightgray!important; */
+}
+.col2{
+    text-align: right!important;
+    font-size: 33rpx!important;
+    font-weight: 550!important;
+    color: #012ea5!important;
+}
+/* 不知道为啥这里设置了height每个cellgroup才有分隔 */
+.subItem{
+    height: 230rpx!important;
+    /* margin-top: 10rpx!important; */
+}
+.subcell{
+    height:160rpx!important;
+}
+
+.col3{
+    text-align: left!important;
+    font-size: 30rpx!important;
+    font-weight: 450!important;
+    color: black!important;
+}
+.col4{
+    text-align: right!important;
+    font-size: 33rpx!important;
+    font-weight: 550!important;
+    color: red!important;
+}
+.vehicleImage{
+    width: 180rpx;
+    height: 120rpx;
+    margin-left: -20rpx;
+}

@@ -1,0 +1,27 @@
+/* components/confirmButton.wxss */
+/* .button{
+    text-align: center;
+    widows: 300rpx!important;
+} */
+.button1{
+    width: 280rpx;
+    text-align: center;
+    color: #012ea5;
+    background-color: rgba(253, 185, 39, 255);
+    font-size: 32rpx;
+    font-weight: 550;
+    border-radius: 1em;
+}
+.button2{
+    width:350rpx;
+    text-align: center;
+    color: #012ea5;
+    background-color: rgba(253, 185, 39, 255);
+    font-size: 32rpx;
+    font-weight: 550;
+    border-radius: 1em;
+}
+.van-button{
+    width: 400rpx;
+    text-align: center;
+}

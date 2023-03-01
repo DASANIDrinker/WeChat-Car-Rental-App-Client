@@ -1,0 +1,30 @@
+<!--pages/uploadImg/uploadImg.wxml-->
+<!-- <view>
+    <van-uploader
+    file-list="{{ fileList }}"
+    max-count="2"
+    bind:after-read="afterRead"
+    deletable="{{ true }}"
+    />
+</view> -->
+<view class="content">
+    <van-row custom-class = "text">
+        {{noticeFront}}
+    </van-row>
+    <van-row>
+        <image src="{{frontIdImg}}" mode="aspectFit" bindtap="tapPhoto" class="image" id = "1"></image>
+    </van-row>
+    <van-row custom-class = "text">
+        {{noticeBack}}
+    </van-row>
+    <van-row>
+        <image src="{{backIdImg}}" mode="aspectFit" bindtap="tapPhoto" class="image" id = "0"></image>
+    </van-row>    
+</view>
+
+<!-- <view bindtap="getAccessToken"> 
+123
+</view> -->
+<van-button custom-class = "button" bindtap="onSave">
+    保存身份证
+</van-button>

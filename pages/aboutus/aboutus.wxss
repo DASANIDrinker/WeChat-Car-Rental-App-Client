@@ -1,0 +1,18 @@
+/* pages/aboutus/aboutus.wxss */
+
+.title{
+    font-size: xx-large;
+    color: #012ea5; 
+    height: 60rpx;
+    text-align: center;
+    font-weight: 700;
+    padding-top: 20rpx;
+}
+.text{
+    font-size:large;
+    word-break: break-all;
+}
+.view{
+    padding-left: 30rpx;
+    padding-right: 30rpx;
+}

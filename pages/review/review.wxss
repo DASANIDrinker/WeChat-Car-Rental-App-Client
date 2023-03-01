@@ -1,0 +1,286 @@
+/* pages/review/review.wxss */
+/* .cover-box{
+    position: fixed;
+    background-color: rgba(253, 185, 39, 255);*/
+/* background-size: 30% 30%; */
+/* height: 30%;
+    width: 100%;
+    z-index: -1;
+}  */
+page {
+    background-color: rgba(253, 185, 39, 255);
+    height: 100%;
+    width: 100%;
+}
+
+.notice {
+    /* margin-top: -15rpx; */
+    font-size: large;
+    font-weight: 600 !important;
+    text-align: center;
+    color: #012ea5;
+}
+
+.content {
+    /* text-align: bottom; */
+    /* display: flex!important;
+    flex-direction: row!important; */
+    /* justify-content: center;
+    align-items: center; */
+    text-align: center;
+    margin: 5rpx;
+}
+
+.box1 {
+    margin-top: 40rpx!important;
+    /* height: 300rpx!important; */
+    /* border-radius: 10!important; */
+    /* border-color: rgba(253, 185, 39, 255) !important; */
+    /* box-shadow:15rpx 15rpx 20rpx rgba(253, 185, 39, 255) */
+}
+
+.box2{
+    margin-top:30rpx;
+    /* margin-left: 10rpx;
+    margin-right: 10rpx; */
+}
+/* .mainCell{
+    height: 200rpx;
+} */
+.cell1 {
+    font-size: 40rpx;
+    text-align: left;
+    color: black;
+    font-weight: bolder;
+}
+
+.cell2 {
+    font-size: 30rpx;
+    text-align: left;
+    color: black;
+    font-weight: 450;
+}
+
+.leftSide {
+    text-align: left;
+    color: black !important;
+    font-size: medium !important;
+}
+.leftSide1{
+    text-align: left;
+    color: black !important;
+    font-size: large !important;
+    font-weight: bold!important;
+}
+.leftSide2{
+    text-align: left;
+    color: black !important;
+    font-size: 33rpx !important;
+    font-weight: 450!important;
+}
+.leftSide3{
+    text-align: left;
+    color:#012ea5;
+    font-size:small;
+}
+.leftSide4{
+    text-align: left!important;
+    color: black !important;
+    font-size:30rpx!important;
+}
+.leftSide5{
+    text-align: left!important;
+    color: #012ea5 !important;
+    font-size: 30rpx !important;
+}
+.leftSide6{
+    text-align: left!important;
+    color: black !important;
+    font-size:28rpx!important;
+}
+.leftSide7{
+    text-align: left!important;
+    color: grey !important;
+    font-size:28rpx!important;
+}
+.leftSide8{
+    text-align: left!important;
+    color: black !important;
+    font-size:28rpx!important;
+    font-weight:550!important;
+}
+.leftSide9{
+    text-align: left!important;
+    color: #012ea5 !important;
+    font-size:25rpx!important;
+}
+.leftSide10{
+    /* margin-top: -3rpx!important;
+    padding-top: -3rpx!important; */
+    text-align: left!important;
+    color: black !important;
+    /* font-size:25rpx!important; */
+}
+.leftSide11{
+    text-align: left!important;
+    color: #012ea5 !important;
+    font-size:28rpx!important;
+    font-weight: 550!important;
+
+}
+.rightSide {
+    text-align: right;
+    color: black !important;
+    font-size: medium !important;
+}
+.rightSide1{
+    justify-content: flex-end!important;
+    /* align-items:flex-end!important; */
+    vertical-align:middle!important;
+}
+.rightSide2{
+    text-align: right!important;
+    color: black !important;
+    font-size:28rpx!important;
+    font-weight:550!important;
+}
+
+/* 箭头设置 通过shadowroot找到的 */
+.icon-icon_on_the_right {
+    margin-top: 55rpx !important;
+}
+
+.duigou1{
+    margin-top: 15rpx!important;
+    display: flex!important;
+    justify-content: center!important;
+    color: #012ea5!important;
+}
+.zhengjian{
+    /* margin-top: 0rpx!important; */
+    display: flex!important;
+    justify-content: center!important;
+    color: #012ea5!important;
+}
+.quxiao{
+    margin-top: 5rpx!important;
+    display: flex!important;
+    justify-content: center!important;
+    color: #012ea5!important;
+}
+
+.small {
+    font-size: 60;
+    color: grey;
+}
+
+.bottomMenu {
+    position: fixed !important;
+    bottom: 0 !important;
+}
+
+.button {
+    width: 260rpx!important;
+    text-align: center!important;
+    color: #012ea5 !important;
+    background-color: rgba(253, 185, 39, 255) !important;
+    font-size: 32rpx !important;
+    font-weight: 550 !important;
+    border-radius: 1em !important;
+}
+
+.highLight{
+    justify-content: center;
+    margin-top: 20rpx;
+    font-size: 48rpx;
+    color:#012ea5;
+    font-weight:bold;
+}
+.highLight2{
+    text-align: left;
+    /* margin-top: 20rpx; */
+    font-size: 40rpx;
+    color:#012ea5;
+    font-weight:normal;
+}
+.feeNotice{
+    margin-top: 75rpx;
+    margin-left: 8rpx;
+    margin-right: 8rpx;
+}
+/* .popUp{
+    background-color: rgba(253, 185, 39, 255)!important;
+} */
+.title{
+    color: #012ea5!important;
+    text-align: center!important;
+    font-size:large!important;
+    font-weight: bold!important;
+}
+.text{
+    color:black!important;
+    text-align: left!important;
+    font-size:small!important;
+}
+
+.subTitle{
+    color: #012ea5!important;
+    text-align: center!important;
+    font-size:medium!important;
+    font-weight: bold!important;
+}
+
+.table {
+    display: flex;
+    flex-direction: column;     /* 排列形式: 向下 */
+    /* margin-top: 50px;
+    margin-bottom: 50px; */
+}
+  
+.tr {
+    display: flex;
+    flex-direction: row;
+}
+
+.td1,.td2,.td3,.td4{  /* 公有的属性 */
+    color: black;
+    background-color: rgb(224, 224, 224);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;            /* 自动换行 */
+    /* width: 25%;					4个25%相加刚好100% */
+    /* text-align: left;         文本居中 */
+    justify-content:center;     /* 主轴居中 */
+    align-items: center;        /* 交叉轴居中 */
+    border-top: 1px solid #dadada;      /* 单元格上线框 */
+    border-bottom: 1px solid #dadada;   /* 单元格下线框 */
+    border-left: 1px solid #dadada;     /* 单元格左线框 */
+    border-right: 1px solid #dadada;    /* 单元格右线框 */
+}
+.td1{
+    width:20%;
+    text-align: center; 
+}
+.td2{
+    width: 80%;
+    text-align: left; 
+}
+.td3{
+    width: 60%;
+}
+.td4{
+    width:40%;
+}
+/* .th {
+    font-weight: 800;           字体加重
+    background-color:#B3CCF4;   背景色
+} */
+
+/* .td {
+    background-color:#edf3e9;   背景色
+} */
+
+.vehicleImage{
+    width: 210rpx;
+    height: 140rpx;
+}

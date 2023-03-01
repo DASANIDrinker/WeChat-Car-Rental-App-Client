@@ -1,0 +1,96 @@
+<!--pages/account/account.wxml-->
+<view class="cover-box">
+    <!-- <image src="../../image/account-background/c85f9b8ae00427b1e902e8d7b2f6e517.jpeg" style="width: 100%;"></image> -->
+    <image src="{{backGroundImg}}" style="width: 100%;"></image>
+</view>
+
+<van-cell-group wx:if="{{isLoggedIn == false}}" inset custom-class="box1" bindtap="navigateToLogin">
+    <van-cell size="large">
+        <van-col span="5" custom-class="icon">
+            <van-icon size="70" class-prefix="iconfont" name="iconfont icon-touxiang3"></van-icon>
+        </van-col>
+        <van-col span="8" custom-class="login">
+            点击登录/注册
+        </van-col>
+    </van-cell>
+    <!-- <van-cell>
+                <van-row custom-class = "row">
+                    我的订单
+                </van-row>
+            </van-cell> -->
+</van-cell-group>
+
+<van-cell-group wx:if="{{isLoggedIn}}" inset custom-class="box1" bindtap="navigateToLogin">
+    <van-cell size="large">
+        <van-col span="5" custom-class="icon">
+            <van-icon size="70" class-prefix="iconfont" name="iconfont icon-touxiang3" style="color: #012ea5;"></van-icon>
+        </van-col>
+        <van-col span="8" custom-class="login" style="color: #012ea5; font-size: medium; font-weight: 500;">
+            微信用户
+        </van-col>
+    </van-cell>
+    
+</van-cell-group>
+<view class="row" wx:if="{{isLoggedIn}}">
+        我的订单
+</view>
+<view class="view">
+    <!-- <van-cell>
+        <van-row custom-class="row"> -->
+   
+            
+    <!-- </van-row>
+    </van-cell> -->
+   
+    <scroll-view scroll-y="true" class="scroll" scroll-with-animation="true" style='height:{{scrollHeight + "rpx"}}'>
+        <view wx:for="{{orders}}" wx:key="*this" wx:for-item="order">
+            <van-cell-group inset border="{{false}}" custom-class="subItem">
+                <van-row>
+                    <van-col offset="1" span="11">
+                        姓名:{{order.name}}
+                    </van-col>
+                    <van-col offset="1" span="11">
+                        电话:{{order.phone}}
+                    </van-col>
+                </van-row>
+                <van-row>
+                    <van-col offset="1" span="11">
+                        订单金额:{{order.total}}
+                    </van-col>
+                    <van-col offset="1" span="11">
+                        取/还车位置:{{order.pickupLocation.locationBrief}}
+                    </van-col>
+                </van-row>
+                <van-row>
+                    <van-col offset="1" span="11">
+                        取车时间:{{order.startDate}}
+                    </van-col>
+                    <van-col offset="1" span="11">
+                        还车时间:{{order.endDate}}
+                    </van-col>
+                </van-row>
+                <van-row>
+                    <van-col offset="1" span="11">
+                        车型:{{order.vehicleType.brand}}{{order.vehicleType.model}}
+                    </van-col>
+                    <van-col offset="1" span="11">
+                        订单状态:{{order.orderStatus.orderDescription}}
+                    </van-col>
+                </van-row>
+                <van-row>
+                    <van-button type = "default" size="large" color = "#012EA5" bindtap="refundRequest" data-otn="{{order.paymentOrderInfo.outTradeNo}}"><view>申请退款</view></van-button>
+                </van-row>
+            </van-cell-group>
+            <!-- <view>{{order.orderId}}</view>
+            <view>{{order.phone}}</view> -->
+        </view>
+    </scroll-view>
+
+</view>
+<!-- <view wx:for="{{orders}}" wx:key="index">
+            <view>{{item.orderId}}</view>
+            <view>{{item.phone}}</view>
+</view>
+<view>
+{{orders}}
+</view> -->

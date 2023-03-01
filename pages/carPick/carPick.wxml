@@ -1,0 +1,368 @@
+<!-- 获取用户信息的弹出层 -->
+<!-- <van-popup show="{{!hasUserInfo}}" bind:close="onClosePopUp" bindtap="getUserProfile">
+    <view>
+        
+    </view>
+</van-popup> -->
+<!-- <view class="container">
+  <button wx:if="{{!hasUserInfo}}" bindtap="getUserProfile">获取头像昵称</button>
+  <view class="userinfo">
+    <image src="{{userInfo.avatarUrl}}"></image>
+    <view>{{userInfo.nickName}}</view>
+  </view>
+</view> -->
+
+
+<!--租车选时间及弹出层-->
+<!-- id是用来获取高度 没有修饰样式作用 -->
+<van-row id="row">
+    <van-cell border="{{false}}" bind:click="showPopup" custom-class="rowbox">
+        <van-col span="8" offset="3">
+            <view class="box1">
+                {{pickUpLocation}}
+            </view>
+            <view class="box1">
+                {{timeCurrent}}
+            </view>
+        </van-col>
+        <van-col span="2">
+            <!-- <view class="box3"> 
+            </view> -->
+            <!-- <view class="box3">
+                <van-icon size = "16" class-prefix = "iconfont" name = "iconfont icon-changjiantou" color = "#012ea5" class="icon2"></van-icon>
+            </view> -->
+            <view class="box2">
+                <van-icon size="20" class-prefix="iconfont" name="iconfont icon-icon_on_the_right" color="#012ea5" class="icon2"></van-icon>
+            </view>
+        </van-col>
+        <van-col span="8">
+            <view class="box3">
+                {{dropOffLocation}}
+            </view>
+            <view class="box3">
+                {{timeEnd}}
+            </view>
+        </van-col>
+        <van-col span="2" offset="1" custom-class="col">
+            <van-icon size="20" class-prefix="iconfont" name="iconfont icon-xiugai" class="icon1"></van-icon>
+        </van-col>
+    </van-cell>
+</van-row>
+<van-popup show="{{ show }}" position="top" custom-style="height: 33%;" bind:close="onClose" z-index="201">
+    <timeSelector id="selectTimeComponent"></timeSelector>
+</van-popup>
+
+<!--下拉菜单-->
+<!-- id是用来获取高度 没有样式修饰作用 -->
+<van-dropdown-menu active-color="#012ea5" id="dropDown">
+    <van-dropdown-item value="{{ value1 }}" options="{{ option1 }}" id="sort" bind:change="onChangeDropDown" />
+    <van-dropdown-item title="{{brandTitle}}" id="brand">
+        <view>
+            <van-tree-select items="{{ items }}" main-active-index="{{ mainActiveIndex }}" active-id="{{ activeId }}" max="{{ max }}" bind:click-nav="onClickNav" bind:click-item="onClickItem" main-item-class="leftOptions" content-item-class="rightOptions" main-active-class="leftOptions" content-active-class="rightActiveOptions" height="600rpx" />
+            <!-- id = "brandMenu" -->
+            <confirmButton bind:sync="syncButtom1">
+            </confirmButton>
+        </view>
+    </van-dropdown-item>
+    <van-dropdown-item title="{{priceTitle}}" id="price">
+        <van-cell-group>
+            <van-cell>
+                <view class="rent">
+                    租金/天
+                </view>
+            </van-cell>
+            <van-cell>
+                <van-col span="6">
+                    <van-button round color="{{priceColorList[0]}}" bind:click="onClickButton1" data-colorId="0">0-150</van-button>
+                </van-col>
+                <van-col span="6">
+                    <van-button round color="{{priceColorList[1]}}" bind:click="onClickButton1" data-colorId="1">150-250</van-button>
+                </van-col>
+                <van-col span="6">
+                    <van-button round color="{{priceColorList[2]}}" bind:click="onClickButton1" data-colorId="2">250-350</van-button>
+                </van-col>
+                <van-col span="6">
+                    <van-button round color="{{priceColorList[3]}}" bind:click="onClickButton1" data-colorId="3">350以上</van-button>
+                </van-col>
+            </van-cell>
+            <van-cell>
+                <van-col span="6">
+                    <van-button round color="{{priceColorList[4]}}" bind:click="onClickButton1" data-colorId="4">不限</van-button>
+                </van-col>
+            </van-cell>
+            <!--此为350及以上价格-->
+            <!-- <van-cell>
+                <van-col span = "6">
+                    <van-button round class="button" color ="#012ea5">350以上</van-button>
+                </van-col>
+            </van-cell> -->
+            <van-cell>
+                <!-- <van-slider range value="{{10,50}}"  @change="onChange" /> -->
+            </van-cell>
+        </van-cell-group>
+        <confirmButton bind:sync="syncButtom2"></confirmButton>
+
+
+    </van-dropdown-item>
+    <van-dropdown-item title="{{moreTitle}}" id="more">
+        <van-cell-group>
+            <!--车辆配置-->
+            <van-cell border="{{false}}">
+                <van-col>
+                    <view class="box4">
+                        车辆配置
+                    </view>
+                </van-col>
+            </van-cell>
+            <!-- 车辆配置第一行 -->
+            <van-cell border="{{false}}">
+                <!-- <van-col span = "7">
+                    <van-button custom-class="button" color = "{{configColorList[0]}}" data-colorId="0" bind:click = "onClickButton2">
+                        倒车雷达
+                    </van-button>
+                </van-col> -->
+                <van-col span="7">
+                    <van-button custom-class="button" color="{{configColorList[0]}}" data-colorId="0" bind:click="onClickButton2">
+                        倒车影像
+                    </van-button>
+                </van-col>
+                <van-col span="7">
+                    <van-button custom-class="button" color="{{configColorList[1]}}" data-colorId="1" bind:click="onClickButton2">
+                        全景天窗
+                    </van-button>
+                </van-col>
+                <van-col span="7">
+                    <van-button custom-class="button" color="{{configColorList[2]}}" data-colorId="2" bind:click="onClickButton2">真皮座椅</van-button>
+                </van-col>
+            </van-cell>
+            <!-- 车辆配置第二行 -->
+            <van-cell border="{{false}}">
+                <!-- <van-col span= "7">
+                    <van-button custom-class="button" color = "{{configColorList[3]}}" data-colorId="3" bind:click = "onClickButton2">真皮座椅</van-button>
+                </van-col> -->
+                <van-col span="7">
+                    <van-button custom-class="button" color="{{configColorList[3]}}" data-colorId="3" bind:click="onClickButton2">行车记录仪</van-button>
+                </van-col>
+                <van-col span="7">
+                    <van-button custom-class="button" color="{{configColorList[4]}}" data-colorId="4" bind:click="onClickButton2">ETC</van-button>
+                </van-col>
+                <van-col span="7">
+                    <van-button custom-class="button" color="{{configColorList[5]}}" data-colorId="5" bind:click="onClickButton2">手机支架</van-button>
+                </van-col>
+            </van-cell>
+            <!-- 车辆配置第三行 -->
+            <van-cell border="{{false}}">
+                <!-- <van-col span = "7">
+                    <van-button custom-class="button" color = "{{configColorList[6]}}" data-colorId="6" bind:click = "onClickButton2">手机支架</van-button>
+                </van-col> -->
+                <van-col span="7">
+                    <van-button custom-class="button" color="{{configColorList[6]}}" data-colorId="6" bind:click="onClickButton2">雨伞</van-button>
+                </van-col>
+            </van-cell>
+            <!-- 动力类型 -->
+            <van-cell border="{{false}}">
+                <view class="box4">
+                    动力类型
+                </view>
+            </van-cell>
+            <!-- 动力类型第一行 -->
+            <van-cell border="{{false}}">
+                <van-col span="7">
+                    <van-button custom-class="button" color="{{powerColorList[0]}}" data-colorId="0" bind:click="onClickButton3">
+                        汽油
+                    </van-button>
+                </van-col>
+                <van-col span="7">
+                    <van-button custom-class="button" color="{{powerColorList[1]}}" data-colorId="1" bind:click="onClickButton3">
+                        油气混合
+                    </van-button>
+                </van-col>
+                <van-col span="7">
+                    <van-button custom-class="button" color="{{powerColorList[2]}}" data-colorId="2" bind:click="onClickButton3">
+                        纯电动
+                    </van-button>
+                </van-col>
+            </van-cell>
+            <!-- 座位 -->
+            <van-cell border="{{false}}">
+                <view class="box4">
+                    座位
+                </view>
+            </van-cell>
+            <!-- 座位第一行 -->
+            <van-cell border="{{false}}">
+                <van-col span="7">
+                    <van-button custom-class="button" color="{{seatColorList[0]}}" data-colorId="0" bind:click="onClickButton4">
+                        四座
+                    </van-button>
+                </van-col>
+                <van-col span="7">
+                    <van-button custom-class="button" color="{{seatColorList[1]}}" data-colorId="1" bind:click="onClickButton4">
+                        五座
+                    </van-button>
+                </van-col>
+            </van-cell>
+            <!-- 档位 -->
+            <van-cell border="{{false}}">
+                <view class="box4">
+                    档位
+                </view>
+            </van-cell>
+            <!-- 档位第一行 -->
+            <van-cell border="{{false}}">
+                <van-col span="7">
+                    <van-button custom-class="button" color="{{gearColorList[0]}}" data-colorId="0" bind:click="onClickButton5">
+                        自动挡
+                    </van-button>
+                </van-col>
+                <van-col span="7">
+                    <van-button custom-class="button" color="{{gearColorList[1]}}" data-colorId="1" bind:click="onClickButton5">
+                        手动挡
+                    </van-button>
+                </van-col>
+            </van-cell>
+            <!-- 厢数 -->
+            <van-cell border="{{false}}">
+                <view class="box4">
+                    厢数
+                </view>
+            </van-cell>
+            <!-- 厢数第一行 -->
+            <van-cell border="{{false}}">
+                <van-col span="7">
+                    <van-button custom-class="button" color="{{compartmentColorList[0]}}" data-colorId="0" bind:click="onClickButton6">
+                        两厢
+                    </van-button>
+                </van-col>
+                <van-col span="7">
+                    <van-button custom-class="button" color="{{compartmentColorList[1]}}" data-colorId="1" bind:click="onClickButton6">
+                        三厢
+                    </van-button>
+                </van-col>
+            </van-cell>
+            <!-- 车系 -->
+            <van-cell border="{{false}}">
+                <view class="box4">
+                    车系
+                </view>
+            </van-cell>
+            <!-- 车系第一行 -->
+            <van-cell border="{{false}}">
+                <van-col span="7">
+                    <van-button custom-class="button" color="{{seriesColorList[0]}}" data-colorId="0" bind:click="onClickButton7">
+                        国产
+                    </van-button>
+                </van-col>
+                <van-col span="7">
+                    <van-button custom-class="button" color="{{seriesColorList[1]}}" data-colorId="1" bind:click="onClickButton7">
+                        日系
+                    </van-button>
+                </van-col>
+                <van-col span="7">
+                    <van-button custom-class="button" color="{{seriesColorList[2]}}" data-colorId="2" bind:click="onClickButton7">
+                        德系
+                    </van-button>
+                </van-col>
+            </van-cell>
+            <van-cell border="{{false}}">
+                <van-col span="7">
+                    <van-button custom-class="button" color="{{seriesColorList[3]}}" data-colorId="3" bind:click="onClickButton7">
+                        韩系
+                    </van-button>
+                </van-col>
+            </van-cell>
+            <confirmButton bind:sync="syncButtom3"></confirmButton>
+        </van-cell-group>
+
+
+    </van-dropdown-item>
+</van-dropdown-menu>
+
+<!--选车界面-->
+<!-- <van-tree-select
+    items="{{carTypes}}"
+    height="1250rpx"
+    main-active-index="{{ mainActiveIndex }}"
+    active-id="{{ activeId }}"
+    bind:click-nav="onClickNav"
+    bind:click-item="onClickItem"
+    main-item-class = "leftOptions"
+    content-item-class = "rightOptions"
+    main-active-class = "leftOptions"
+    content-active-class = "rightActiveOptions"
+> -->
+<!-- </van-tree-select> -->
+
+<!-- 整体导航 -->
+<view>
+    <!-- 左侧导航 -->
+    <!-- 导航的scroll-into-view的作用是每当绑定的数据发生改变 SIV会判断改变后的数值 并且移动视图到改变后的id选择器的位置 -->
+    <!-- 例如SIV绑定leftID 当leftID变为left0时 视图会自动移动到id为left0的组件上 -->
+    <scroll-view scroll-y="true" class="left" style='height:{{scrollHeight + "rpx"}}' scroll-into-view="{{leftId}}">
+        <view id="left{{item.id}}" wx:for="{{navArray}}" wx:key="*this" data-id="{{item.id}}" class="scroll-view-item{{navIndex==item.id?'active':'inactive'}}" bindtap="clickNav">
+            {{item.title}}
+        </view>
+    </scroll-view>
+    <!-- 右侧实例 -->
+    <scroll-view scroll-y="true" class="right" scroll-with-animation="true" bindscroll="rightScroll" style='height:{{scrollHeight + "rpx"}}' scroll-into-view="{{rightId}}">
+        <!-- <view wx:for="{{navArray}}" wx:key="index" class="scroll-view-item rightblock" id="right{{item.id}}"> -->
+        <view wx:for="{{navArray}}" wx:key="index" class="scroll-view-item rightblock" id="right{{item.id}}">
+            <!-- <view wx:for="{{item.subArray}}" wx:key="index" wx:for-index="childIndex" class="content"> -->
+            <view wx:for="{{item.subArray}}" wx:key="childIndex" wx:for-index="childIndex" wx:for-item="subitem" class="content">
+                <!-- 自定义组件由于无法显示navIndex=0以外的选项所以被暂时抛弃 -->
+                <!-- <carBlock class="block" navIndex="{{index}}">
+                </carBlock> -->
+                <!-- 以下为右边的汽车选项布局及逻辑 -->
+                <van-cell-group inset border="{{false}}" data-vehicle="{{subitem}}" bindtap="navigateToLogin" custom-class="subItem" >
+                    <van-cell custom-class = "subcell">
+                        <van-col offset="1" span="8">
+                            <!-- <image src="../../image/swiper/东方时尚1.jpg" class="image"></image> -->
+                            <image src="{{subitem.img}}" class = "vehicleImage"></image>
+                        </van-col>
+                        <van-col offset="2" span="13">
+                            <van-row custom-class="row1">
+                                {{subitem.brand}}{{subitem.model}}
+                            </van-row>
+                            <van-row wx:if = "{{subitem.displacement}}" custom-class ="row2">
+                                {{subitem.displacement}}/{{subitem.power}}
+                            </van-row>
+                            <van-row wx:else custom-class = "row2">
+                                {{subitem.power}}
+                            </van-row>
+
+                            <van-row custom-class="row2">
+                                {{subitem.isAuto}}/{{subitem.boxes}}/{{subitem.seats}}座
+                            </van-row>
+                        </van-col>
+                    </van-cell>
+
+                    <van-cell>
+                        <van-col offset="1" span="9">
+                            <van-row custom-class="row2">
+                                车辆详情＞
+                            </van-row>
+                        </van-col>
+                        <van-col wx:if = "{{subitem.isFull === false}}" offset="5" span="4">
+                            <van-row custom-class="col2">
+                                {{subitem.feePerDay}}
+                            </van-row>
+                        </van-col>
+                        <van-col wx:if = "{{subitem.isFull === false}}"span="5">
+                            <van-row custom-class="col3">
+                                元/天
+                            </van-row>
+                        </van-col>
+
+                        <van-col wx:else ="{{subitem.isFull === true}}" span="14">
+                            <van-row custom-class="col4">
+                                已租满
+                            </van-row>
+                        </van-col>
+
+                    </van-cell>
+
+                </van-cell-group>
+            </view>
+        </view>
+    </scroll-view>
+</view>

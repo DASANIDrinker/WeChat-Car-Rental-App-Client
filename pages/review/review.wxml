@@ -1,0 +1,691 @@
+<!--pages/review/review.wxml-->
+<!-- 提示北京限行规则 -->
+<van-cell bindtap="showPopup">
+    <van-row custom-class = "notice">
+        <van-icon size="22" class-prefix="iconfont" name="iconfont icon-laba"></van-icon>
+        点击阅读北京限行规则，避免违章问题
+    </van-row>
+</van-cell>
+
+<!-- 北京限行规则弹出层 -->
+<van-popup show="{{ showPop }}" round bind:close="onClose" position="top" custom-style="height:55% ">
+    <view class="content">
+        <van-row>
+            <van-col span="4">
+                <!-- <view class="content"> -->
+                轮换日期/星期
+                <!-- </view> -->
+                <!-- 轮换日期/星期 -->
+            </van-col>
+            <van-col offset="1" span="3">
+                星期一
+            </van-col>
+            <van-col offset="1" span="3">
+                星期二
+            </van-col>
+            <van-col offset="1" span="3">
+                星期三
+            </van-col>
+            <van-col offset="1" span="3">
+                星期四
+            </van-col>
+            <van-col offset="1" span="3">
+                星期五
+            </van-col>
+        </van-row>
+        <van-divider customStyle="color: #012ea5; border-color: #012ea5;" />
+        <van-row>
+            <van-col span="4">
+                2022.07.04至2022.10.02
+            </van-col>
+            <van-col offset="1" span="3">
+                2 和 7
+            </van-col>
+            <van-col offset="1" span="3">
+                3 和 8
+            </van-col>
+            <van-col offset="1" span="3">
+                4 和 9
+            </van-col>
+            <van-col offset="1" span="3">
+                5 和 0
+            </van-col>
+            <van-col offset="1" span="3">
+                1 和 6
+            </van-col>
+        </van-row>
+        <van-divider customStyle="color: #012ea5; border-color: #012ea5;" />
+        <van-row>
+            <van-col span="4">
+                2022.10.03至2023.01.01
+            </van-col>
+            <van-col offset="1" span="3">
+                1 和 6
+            </van-col>
+            <van-col offset="1" span="3">
+                2 和 7
+            </van-col>
+            <van-col offset="1" span="3">
+                3 和 8
+            </van-col>
+            <van-col offset="1" span="3">
+                4 和 9
+            </van-col>
+            <van-col offset="1" span="3">
+                5 和 0
+            </van-col>
+        </van-row>
+        <van-divider customStyle="color: #012ea5; border-color: #012ea5;" />
+        <van-row>
+            <van-col span="4">
+                2023.01.02至2023.04.02
+            </van-col>
+            <van-col offset="1" span="3">
+                5 和 0
+            </van-col>
+            <van-col offset="1" span="3">
+                1 和 6
+            </van-col>
+            <van-col offset="1" span="3">
+                2 和 7
+            </van-col>
+            <van-col offset="1" span="3">
+                3 和 8
+            </van-col>
+            <van-col offset="1" span="3">
+                4 和 9
+            </van-col>
+        </van-row>
+        <van-divider customStyle="color: #012ea5; border-color: #012ea5;" />
+        <van-row>
+            限行时间段为周一至五的早7时至晚20时，限行范围为五环路以内（不包括五环路主路），限行车牌尾号每13周轮换一次。
+        </van-row>
+    </view>
+</van-popup>
+
+<!-- 汽车型号配置和图片以及时间地点 -->
+<van-cell-group inset custom-class="box1">
+    <!-- 汽车配置型号和图片 -->
+    <van-cell custom-class = "mainCell">
+        <van-col offset = "1" span="8">
+            <image src="{{vehicle.img}}" class = "vehicleImage"></image>
+        </van-col>
+        <van-col offset = "2" span="13">
+            <van-row>
+                <view class="cell1">
+                    {{vehicle.brand}}{{vehicle.model}}
+                </view>
+            </van-row>
+            <van-row wx:if="{{vehicle.displacement}}">
+                <view class="cell2">
+                    {{vehicle.displacement}}|{{vehicle.auto}}
+                </view>
+            </van-row>
+            <van-row wx:else>
+                <view class="cell2">
+                    {{vehicle.power}}|{{vehicle.auto}}
+                </view>
+            </van-row>
+            <van-row>
+                <view class="cell2">
+                    {{vehicle.boxes}}|{{vehicle.seats}}座
+                </view>
+            </van-row>
+        </van-col>
+    </van-cell>
+    <!-- 时间和地点 -->
+    <van-cell>
+        <van-col span="11" custom-class="leftSide">
+            <van-row custom-class="small">
+                取车
+            </van-row>
+            <van-row>
+                {{monthCurrent}}月{{dateCurrent}}日 {{weekdayCurrent}} {{hourCurrent}}:{{minuteCurrent}}
+            </van-row>
+            <van-row>
+                {{locations.value[0]}}
+            </van-row>
+        </van-col>
+        <van-col span="2">
+            <view class="iconJiantou">
+                <van-icon size="30" class-prefix="iconfont" name="iconfont icon-icon_on_the_right" style="color: #012EA5;"></van-icon>
+            </view>
+            <!-- <van-icon size="30" class-prefix="iconfont" name="iconfont icon-icon_on_the_right" style="color: #012EA5;" custom-classs = "iconJianTou"></van-icon> -->
+        </van-col>
+        <van-col span="11" custom-class="rightSide">
+            <van-row custom-class="small">
+                还车
+            </van-row>
+            <van-row>
+                {{monthEnd}}月{{dateEnd}}日 {{weekdayEnd}} {{hourEnd}}:{{minuteEnd}}
+            </van-row>
+            <van-row>
+                {{locations.value[0]}}
+            </van-row>
+        </van-col>
+    </van-cell>
+</van-cell-group>
+
+<!-- 车辆保险大标题和免费车辆保险 -->
+<van-cell-group custom-class="box2">
+    <!-- 大保险标题 -->
+    <van-cell>
+        <van-row custom-class="leftSide1">
+            车辆保障
+        </van-row>
+    </van-cell>
+    <!-- 免费保险详细描述 -->
+    <van-cell>
+        <!-- 免费保险标题 -->
+        <van-row>
+            <van-col span="5" custom-class="leftSide8">
+                基础服务
+            </van-col>
+            <van-col span="3" custom-class="leftSide3" bindtap="showPopup2">
+                详情 >
+            </van-col>
+            <van-col offset="8" span="8" custom-class="rightSide2">
+                ￥0 已包含
+            </van-col>
+        </van-row>
+        <!-- 免费保险内容 -->
+        <!-- 内容第一行 -->
+        <van-row>
+            <van-col span = "2" custom-class = "duigou1">
+                <van-icon size="14" class-prefix="iconfont" name="iconfont icon-duigou1"></van-icon>
+            </van-col>
+            <van-col span = "17">
+                <van-row custom-class="leftSide10">
+                四项主险：1.车损险 2.第三者责任险 3.盗抢险 4.车上人员座位险
+            </van-row>
+            </van-col>
+        </van-row>
+        <!-- 内容第二行 -->
+        <van-row>
+            <van-col span = "2" custom-class = "duigou1">
+                <van-icon size="14" class-prefix="iconfont" name="iconfont icon-duigou1"></van-icon>
+            </van-col>
+            <van-col span = "17">
+                <van-row custom-class="leftSide10">
+                承租人需承担本车定损金额的40%费用其中包括(维修费:20%,折旧费:20%)
+            </van-row>
+            </van-col>
+        </van-row>
+
+    </van-cell>
+</van-cell-group>
+
+<!-- 收费车辆保险 -->
+<van-cell-group>
+    <!-- 收费车辆保险细节 -->
+    <van-cell>
+        <!-- 收费车辆保险标题 -->
+        <van-row>
+            <van-col span="5" custom-class="leftSide8">
+                品质服务
+            </van-col>
+            <van-col span="3" custom-class="leftSide3" bindtap="showPopup2">
+                详情 >
+            </van-col>
+            <!-- 保险弹出层 -->
+            <van-popup show="{{ showPop2 }}" bind:close="onClose2" postion="left" custom-style="width: 100%; height: 85%;" closeable>
+                <!-- 两种保险的共同事项 -->
+                <van-cell>
+                    <!-- 标题 -->
+                    <van-row custom-class="title">
+                        服务详情
+                    </van-row>
+                    <van-row custom-class="text">
+                        1.若车辆发生事故,请您注意人身安全,并拨打122交通事故报警电话,同时请拨打东方时尚汽车租赁有限公司24小时服务电话:13611123333以获得保险方面的咨询和建议,车辆需由保险公司定损后修理。
+                    </van-row>
+                    <van-row custom-class="text">
+                        2.如车辆发生事故时没有及时报修并通知北京东方时尚汽车租赁有限公司,车辆承租人还车经我方工作人员检查车辆时发现问题,需要按照
+                        时新修理厂定损价格支付维修费,由于车辆承租人在车辆使用期间发生事故没有保修已经造成损失,所购买的"车辆事故保证服务"费用恕不退还。
+                    </van-row>
+                    <van-row custom-class="text">
+                        3.车辆承租人在租赁车辆使用期间的所有车辆均有"交强险及商业保险存续"(有交强险和商业保险的保单作为证据)
+                    </van-row>
+                </van-cell>
+                <!-- 免费保险单独事项 -->
+                <van-col offset="1" span="10">
+                    <!-- 免费保险标题 -->
+                    <van-row custom-class="subTitle">
+                        基础服务
+                    </van-row>
+                    <van-row custom-class="text">
+                        1.如车辆承租人不购买车辆事故保障服务出现事故,承租人需承担本车定损总计金额的40%费用其中包括(维修费20%,折旧费20%)
+                    </van-row>
+                </van-col>
+                <!-- 收费保险单独事项 -->
+                <van-col offset="1" span="10">
+                    <!-- 收费保险标题 -->
+                    <van-row custom-class="subTitle">
+                        车辆事故保障服务(品质服务)
+                    </van-row>
+                    <van-row custom-class="text">
+                        1.车辆承租人购买"车辆事故保障服务"后车辆发生事故后定损金额3000元以下,车辆承租人不需要承担任何车辆损失费用
+                    </van-row>
+                    <van-row custom-class="text">
+                        2.由于车辆出现造成车辆损坏需要维修,车辆维修期间所产生的"停运损失费"由车辆承租人承担
+                    </van-row>
+                    <van-row custom-class="text">
+                        3.定损金额3000元以上车辆承租人需承担炒出部分的40%,包括20%维修费和20%加速折旧费。
+                    </van-row>
+                </van-col>
+            </van-popup>
+            <van-col offset="10" span="3" custom-class="rightSide2">
+                ￥350
+            </van-col>
+            <van-col offset="1" span="2" custom-class="rightSide2">
+                <van-checkbox value="{{ checked }}" bind:change="onChange" icon-size="22px" checked-color="#012ea5" custom-class="rightSide1"></van-checkbox>
+            </van-col>
+        </van-row>
+        <!-- 收费车辆保险细节 -->
+        <!-- 内容第一行 -->
+        <van-row>
+            <van-col span = "2" custom-class = "duigou1">
+                <van-icon size="14" class-prefix="iconfont" name="iconfont icon-duigou1"></van-icon>
+            </van-col>
+            <van-col span = "17">
+                <van-row custom-class="leftSide10">
+                四项主险：1.车损险 2.第三者责任险 3.盗抢险 4.车上人员座位险
+            </van-row>
+            </van-col>
+        </van-row>
+        <!-- 内容第二行 -->
+        <van-row>
+            <van-col span = "2" custom-class = "duigou1">
+                <van-icon size="14" class-prefix="iconfont" name="iconfont icon-duigou1"></van-icon>
+            </van-col>
+            <van-col span = "17">
+                <van-row custom-class="leftSide10">
+                车辆发生事故后定损金额3000元以下,车辆承租人不需要承担任何车辆损失费用,车辆维修期间
+                所产生的的"停运损失费"由车辆承租人承担。
+            </van-row>
+            </van-col>
+        </van-row>
+         <!-- 内容第三行 -->
+         <van-row>
+            <van-col span = "2" custom-class = "duigou1">
+                <van-icon size="14" class-prefix="iconfont" name="iconfont icon-duigou1"></van-icon>
+            </van-col>
+            <van-col span = "17">
+                <van-row custom-class="leftSide10">
+                定损金额3000元以上部分, 承租人需承担车辆定损金额的40%费用其中包括(维修费:20%,折旧费:20%)
+            </van-row>
+            </van-col>
+        </van-row>
+    </van-cell>
+</van-cell-group>
+
+<!-- 支付方式 -->
+<van-cell-group custom-class="box2">
+    <!-- 标题 -->
+    <van-cell>
+        <van-row custom-class="leftSide1">
+            支付方式
+        </van-row>
+    </van-cell>
+    <!-- 第二行 显示总价 -->
+    <van-cell>
+        <!-- 放一个类似checkBox的图标 -->
+        <van-col span="2" custom-class = "quxiao">
+            <van-icon size="20" class-prefix="iconfont" name="iconfont icon-pay-order"></van-icon>
+        </van-col>
+        <van-col span="7" custom-class="leftSide4">
+            在线支付,总价
+        </van-col>
+        <van-col span="15" custom-class="leftSide5">
+            ￥{{total+insurance}}
+        </van-col>
+    </van-cell>
+</van-cell-group>
+
+<!-- 驾驶员信息 -->
+<!-- <van-cell-group custom-class = "box2"> -->
+ <!-- 驾驶员信息标题 -->
+    <!-- <van-cell>
+        <van-row custom-class = "leftSide1">
+            驾驶员信息
+        </van-row>
+    </van-cell> -->
+    <!-- 驾驶员信息输入 -->
+    <!-- <van-cell>
+    <van-col span = "2" custom-class = "quxiao">
+        <van-icon size="18" class-prefix="iconfont" name="iconfont icon-xinxiinfo21"></van-icon>
+    </van-col>
+    <van-col span = "22"> 
+        <van-row wx:if="{{Driver.id}}" custom-class = "leftSide11" bindtap="navigateToUpload">
+            {{Driver.name}}
+        </van-row>
+        <van-row wx:else custom-class = "leftSide7" bindtap="navigateToUpload">
+            请点击此处输入驾驶员信息
+        </van-row>
+    </van-col>
+    </van-cell>
+</van-cell-group> -->
+
+<!-- 押金说明 -->
+<van-cell-group custom-class="box2">
+    <!-- 标题 -->
+    <van-cell>
+        <van-row custom-class="leftSide1">
+            押金说明
+        </van-row>
+    </van-cell>
+    <!-- 表格 -->
+    <van-cell>
+        <!-- 表格 -->
+        <view class="table">
+            <!-- 表头(即第一行) -->
+            <view class="tr">
+                <view class="td1">租车押金</view>
+                <view class="td2">
+                    <van-row style="color: #012ea5;">
+                        ￥5000/￥10000
+                    </van-row>
+                    <van-row>
+                        20万元以下车型取车时支付5000元租车押金
+                    </van-row>
+                    <van-row>
+                        20万元以上车型取车时支付10000元租车押金
+                    </van-row>
+                    <van-row>
+                        若无车损,还车时退还
+                    </van-row>
+                </view>
+            </view>
+            <!-- 表格第二行 -->
+            <view class="tr">
+                <view class="td1">违章押金</view>
+                <view class="td2">
+                    <van-row style="color: #012ea5;">
+                        ￥2500
+                    </van-row>
+                    <van-row>
+                        还车时支付2500元违章押金
+                    </van-row>
+                    <van-row>
+                        若无违章,银行会在换车后30天左右退还押金
+                    </van-row>
+                </view>
+            </view>
+
+            <!-- 表格第三行 -->
+            <view class="tr">
+                <view class="td1">支付方式</view>
+                <view class="td2" style="color: #012ea5;">微信-支付宝-信用卡</view>
+            </view>
+        </view>
+    </van-cell>
+</van-cell-group>
+
+<!-- 取车材料 -->
+<van-cell-group custom-class="box2">
+    <!-- 标题 -->
+    <van-cell>
+        <van-row custom-class="leftSide1">
+            取车材料
+        </van-row>
+    </van-cell>
+    <!-- 驾驶员本人身份证 -->
+    <van-cell>
+        <van-col span="2" custom-class = "zhengjian">
+            <van-row>
+                <van-icon size="24" class-prefix="iconfont" name="iconfont icon-dianzizhengjian"></van-icon>
+            </van-row>
+        </van-col>
+        <van-col span="22">
+            <van-row custom-class="leftSide8">
+                驾驶员本人身份证原件
+            </van-row>
+            <van-row custom-class="leftSide6">
+                或护照
+            </van-row>
+            <van-row custom-class="leftSide7">
+                证件有效期内即可
+            </van-row>
+        </van-col>
+    </van-cell>
+    <!-- 驾驶员本人驾驶本 -->
+    <van-cell>
+        <van-col span="2" custom-class = "zhengjian">
+            <van-row>
+                <van-icon size="24" class-prefix="iconfont" name="iconfont icon-dianzizhengjian"></van-icon>
+            </van-row>
+        </van-col>
+        <van-col span="22">
+            <van-row custom-class="leftSide8">
+                驾驶员本人驾照原件
+            </van-row>
+            <van-row custom-class="leftSide7">
+                证件有效期内即可
+            </van-row>
+        </van-col>
+    </van-cell>
+    <!-- 付款方式 -->
+    <van-cell>
+        <van-col span="2" custom-class = "quxiao">
+            <van-row>
+                <van-icon size="20" class-prefix="iconfont" name="iconfont icon-pay-order"></van-icon>
+            </van-row>
+        </van-col>
+        <van-col span="22">
+            <van-row custom-class="leftSide8">
+                支付宝/微信
+            </van-row>
+            <van-row custom-class="leftSide6">
+                或驾驶员本人国内信用卡
+            </van-row>
+            <van-row custom-class="leftSide7">
+                信用卡有效期内即可
+            </van-row>
+        </van-col>
+    </van-cell>
+</van-cell-group>
+
+<!-- 租车须知 -->
+<van-cell-group custom-class="box2">
+    <!-- 标题 -->
+    <van-cell>
+        <van-row custom-class="leftSide1">
+            租车须知
+        </van-row>
+    </van-cell>
+    <!-- 取消政策栏 -->
+    <van-cell>
+        <!-- 图标 -->
+        <van-col span="2" custom-class = "quxiao">
+            <van-icon size="18" class-prefix="iconfont" name="iconfont icon-quxiaodingdanxiao"></van-icon>
+        </van-col>
+        <!-- 取消政策 -->
+        <van-col span="22">
+            <!-- 取消政策标题 -->
+            <van-row custom-class = "leftSide8">
+                取消政策
+            </van-row>
+            <!-- 取消政策表格 -->
+            <van-row>
+                <view class="table">
+                    <!-- 表头(即第一行) -->
+                    <view class="tr">
+                        <view class="td3" style="background-color: white;">取消时间</view>
+                        <view class="td4" style="background-color: white;">扣费标准</view>
+                    </view>
+                    <!-- 表格第二行 -->
+                    <view class="tr">
+                        <view class="td3">取车前一小时以外</view>
+                        <view class="td4" style="color: #012ea5;">免费取消</view>
+                    </view>
+
+                    <!-- 表格第三行 -->
+                    <view class="tr">
+                        <view class="td3">取车前一小时以内</view>
+                        <view class="td4">扣订单总金额30%</view>
+                    </view>
+                </view>
+            </van-row>
+        </van-col>
+    </van-cell>
+    <!-- 里程限制栏 -->
+    <van-cell>
+        <!-- 图标 -->
+        <van-col span = "2" custom-class = "zhengjian">
+            <van-icon size="24" class-prefix="iconfont" name="iconfont icon-xuhanglicheng"></van-icon>
+        </van-col>
+        <!-- 里程限制 -->
+        <van-col span = "22">
+            <van-row custom-class = "leftSide8">
+                里程限制
+            </van-row>
+            <van-row custom-class = "leftSide9">
+                无里程限制
+            </van-row>
+        </van-col>
+    </van-cell>
+    <!-- 油费栏 -->
+    <van-cell>
+        <!-- 图标 -->
+        <van-col span = "2" custom-class = "quxiao">
+            <van-icon size="19" class-prefix="iconfont" name="iconfont icon-map-gas"></van-icon>
+        </van-col>
+        <!-- 油费 -->
+        <van-col span = "22">
+            <!-- 标题 -->
+            <van-row custom-class = "leftSide8">
+                油费
+            </van-row>
+            <!-- 油费 -->
+            <van-row custom-class = "leftSide9">
+                为增强顾客体验,取车前油箱会加满
+            </van-row>
+            <van-row custom-class = "leftSide10">
+                若还车时少于取车油量,我司将收取油费
+            </van-row>
+            <van-row custom-class = "leftSide10">
+                油费 = 当天市场油价×(油箱总升数 - 还车时油箱升数)
+            </van-row>
+        </van-col>
+    </van-cell>
+    <!-- 设备费用 -->
+    <van-cell>
+        <!-- 标题 -->
+        <van-col span = "2" custom-class = "zhengjian">
+            <van-icon size="21" class-prefix="iconfont" name="iconfont icon-shebei"></van-icon>
+        </van-col>
+        <!-- 设备费用内容 -->
+        <van-col span = "22">
+            <!-- 设备费用标题 -->
+            <van-row custom-class = "leftSide8">
+                设备费用
+            </van-row>
+            <!-- 第一行 -->
+            <van-row custom-class = "leftSide9">
+                手机支架,行车记录仪,ETC以及雨伞等设备均为免费提供
+            </van-row>
+            <!-- 第二行 -->
+            <van-row custom-class = "leftSide10">
+                若有损坏,我司将收取设备损坏费
+            </van-row>
+            <!-- 第三行 -->
+            <van-row custom-class = "leftSide10">
+                设备损坏费 = 设备采购价格 × 1.3
+                <!-- (包括通货膨胀以及人工采购费用) -->
+            </van-row>
+        </van-col>
+    </van-cell>
+</van-cell-group>
+
+<!-- 占位符 -->
+<van-cell-group custom-class = "box2">
+    <van-cell >
+        useless
+    </van-cell>
+    <van-cell>
+        useless
+    </van-cell>
+</van-cell-group>
+
+<!-- 底部固定栏 -->
+<van-cell custom-class="bottomMenu">
+    <van-row>
+        <!-- 总价     -->
+        <van-col span="1" custom-class="leftSide">
+            总价
+        </van-col>
+        <!-- 具体金额 -->
+        <van-col wx:if="{{checked}}" offset="1" span="10" custom-class="leftSide">
+            <view class="highLight">￥{{total+insurance}}</view>
+        </van-col>
+        <van-col wx:else offset="1" span="10" custom-class="leftSide">
+            <view class="highLight">￥{{total}}</view>
+        </van-col>
+        <!-- 费用明细 -->
+        <van-col span="3" custom-class="leftSide">
+            <view bindtap="showPopup1">
+                费用明细
+            </view>
+        </van-col>
+        <!-- 费用明细弹出层 显示具体费用组成 -->
+        <van-popup show="{{ showPop1 }}" bind:close="onClose1" position="bottom" custom-style="height: 30%" closeable round>
+            <van-cell custom-class="feeNotice">
+                <van-row>
+                    <!-- 汽车租赁费 -->
+                    <van-col span="12" custom-class="leftSide">
+                        车辆租赁费含四项主险
+                    </van-col>
+                    <van-col span="12" custom-class="rightSide">
+                        ￥{{total}}
+                    </van-col>
+                </van-row>
+                <!-- 基本保障服务费 -->
+                <van-row>
+                    <van-col span="12" custom-class="leftSide">
+                        基本保障服务费
+                    </van-col>
+                    <van-col span="12" custom-class="rightSide">
+                        ￥0
+                    </van-col>
+                </van-row>
+                <!-- 手续费 -->
+                <van-row>
+                    <van-col span="12" custom-class="leftSide">
+                        手续费
+                    </van-col>
+                    <van-col span="12" custom-class="rightSide">
+                        ￥0
+                    </van-col>
+                </van-row>
+                <!-- 保险费用 如果勾选 -->
+                <van-row wx:if="{{checked}}">
+                    <van-col span="12" custom-class="leftSide">
+                        车辆事故保障服务
+                    </van-col>
+                    <van-col span="12" custom-class="rightSide">
+                        ￥350
+                    </van-col>
+                </van-row>
+            </van-cell>
+            <van-divider customStyle="color: #012ea5; border-color: #012ea5;" />
+            <van-row>
+                <!-- 订单总额 -->
+                <van-col span="18" custom-class="rightSide">
+                    订单总额
+                </van-col>
+                <van-col wx:if="{{checked}}" offset="1" span="5" custom-class="highLight2">
+                    ￥{{total+insurance}}
+                </van-col>
+                <van-col wx:else offset="1" span="5" custom-class="highLight2">
+                    ￥{{total}}
+                </van-col>
+            </van-row>
+
+        </van-popup>
+        <!-- 提交订单按钮 -->
+        <van-col span="9">
+            <van-button custom-class="button" bindtap="submit">
+                提交订单
+            </van-button>
+        </van-col>
+    </van-row>
+</van-cell>

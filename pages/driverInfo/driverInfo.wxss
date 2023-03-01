@@ -1,0 +1,24 @@
+/* pages/driverInfo/driverInfo.wxss */
+.input{
+    font-size: medium!important;
+    text-align: left!important;
+    /* font-weight: bold!important; */
+    color: black!important;
+}
+.label{
+    font-size: medium!important;
+    text-align: center!important;
+    font-weight: 550!important;
+    color: #012ea5!important;
+}
+.button {
+    width: 90%!important;
+    text-align: center!important;
+    display: flex!important;
+    justify-content: center!important;
+    color: #012ea5 !important;
+    background-color: rgba(253, 185, 39, 255) !important;
+    font-size: 32rpx !important;
+    font-weight: 550 !important;
+    border-radius: 1em !important;
+}

@@ -1,0 +1,48 @@
+/* components/selectTime.wxss */
+.cell1{
+    font-size: 26rpx;
+    text-align: left;
+    color:#666;
+    vertical-align: text-bottom;
+}
+.cell2{
+    text-align: left;
+    font-size: 40rpx;
+    color: black;
+    font-weight:800;
+    vertical-align: text-top;
+}
+.cell3{
+    font-size: 30rpx;
+    text-align: left;
+    color: black;
+    font-weight: 450;
+}
+.cell4{
+    text-align: right;
+    font-size: 40rpx;
+    color: black;
+    font-weight:800;
+}
+.cell5{
+    font-size: 30rpx;
+    text-align: right;
+    color: black;
+    font-weight: 450;
+
+}
+.cell6{
+    text-align:center;
+}
+.cell10{
+    color: black;
+    margin-bottom: -20rpx;
+    font-size: medium;
+    font-weight: 550;
+}
+.cell11{
+    color: #012ea5;
+    font-size:larger;
+    font-weight: 600;
+    text-align: center;
+}

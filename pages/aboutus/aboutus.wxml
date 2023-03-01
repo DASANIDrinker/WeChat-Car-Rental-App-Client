@@ -1,0 +1,30 @@
+<!--pages/aboutus/aboutus.wxml-->
+<view>
+    <van-row>
+        <van-col span = "24">
+            <view class="title">
+                关于我们
+            </view>
+        </van-col>    
+    </van-row>
+    <van-row>
+        <van-col span = "24">
+            <view class="view">
+                <text class="text" >
+                北京东方时尚汽车租赁有限公司自成立以来本着“科学管理、规范服务”的质量方针和“我们的服务与客户的需求同步”的经营理念，为客户提供安全、快捷、周到的租车服务。公司具有雄厚的资金实力、专业的服务团队、强大的技术力量和对优质服务的不懈追求。自公司创办以来赢得了众多客户的好评和信赖。    
+                
+                公司现经营租赁车辆种类齐全，拥有奥迪、别克商务舱、迈腾、斯柯达系列、索纳塔、宝来、桑塔纳、考斯特、金龙大巴等不同档次车辆。根据客户多元化的用车需求，为客户提供个性化的用车解决方案。
+                </text>
+            </view>
+        </van-col>        
+    </van-row>
+    <van-row>
+        <van-col span = "24">
+            <view class="title">
+                <!-- <image src="../../image/aboutUs/about.png" style="height: 300rpx; width: 90%;"></image> -->
+                <image src="{{aboutUsImg}}" style="height: 300rpx; width: 90%;"></image>
+            </view>
+        </van-col>    
+    </van-row>
+</view>
+

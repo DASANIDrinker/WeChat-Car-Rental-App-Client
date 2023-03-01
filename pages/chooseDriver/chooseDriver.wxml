@@ -1,0 +1,88 @@
+<!--pages/chooseDriver/chooseDriver.wxml-->
+<van-cell-group inset border="{{false}}" custom-class="group">
+	
+	<van-cell wx:if="{{drivers[0] == undefined}}" bindtap="createDriver">
+		<van-col span="10">
+			<van-icon size="50" class-prefix="iconfont" name="iconfont icon-tianjiayonghu" color="#012ea5"></van-icon>
+		</van-col>
+		<van-col span="12">
+			<view class="text">点击添加用户</view>
+		</van-col>
+	</van-cell>
+	<van-cell wx:else="{{drivers[0]!=undefined}}">
+	<van-col span = "14">
+		<van-row custom-class="content">
+			驾驶人:{{drivers[0].name}}
+		</van-row>
+		<van-row custom-class="content">
+			身份证号:\n{{drivers[0].id}}
+		</van-row>
+		<van-row custom-class="content">
+			准驾车型:{{drivers[0].carClass}}
+		</van-row>
+	</van-col>
+	<van-col span = "5">
+		<van-button type = "info" custom-class = "deleteButton" bindtap="confirmDriver" data-id="0">确认</van-button>
+	</van-col>
+	<van-col span = "5">
+		<van-button type= "danger" custom-class = "deleteButton" bindtap="deleteDriver" data-id="0">删除</van-button>
+	</van-col>
+		
+	</van-cell>
+	<van-cell wx:if="{{drivers[1] == undefined}}" bindtap="createDriver">
+		<van-col span="10">
+			<van-icon size="50" class-prefix="iconfont" name="iconfont icon-tianjiayonghu" color="#012ea5"></van-icon>
+		</van-col>
+		<van-col span="12">
+			<view class="text">点击添加用户</view>
+		</van-col>
+	</van-cell>
+	<van-cell wx:else="{{drivers[1]!=undefined}}">
+	<van-col span = "14">
+		<van-row custom-class="content">
+			驾驶人:{{drivers[1].name}}
+		</van-row>
+		<van-row custom-class="content">
+			身份证号:\n{{drivers[1].id}}
+		</van-row>
+		<van-row custom-class="content">
+			准驾车型:{{drivers[1].carClass}}
+		</van-row>
+	</van-col>
+	<van-col span = "5">
+		<van-button type = "info" custom-class = "deleteButton" bindtap="confirmDriver" data-id="1">确认</van-button>
+	</van-col>
+	<van-col span = "5">
+		<van-button type= "danger" custom-class = "deleteButton" bindtap="deleteDriver" data-id="1">删除</van-button>
+	</van-col>
+		
+	</van-cell>
+	<van-cell wx:if="{{drivers[2] == undefined}}" bindtap="createDriver">
+		<van-col span="10">
+			<van-icon size="50" class-prefix="iconfont" name="iconfont icon-tianjiayonghu" color="#012ea5"></van-icon>
+		</van-col>
+		<van-col span="12">
+			<view class="text">点击添加用户</view>
+		</van-col>
+	</van-cell>
+	<van-cell wx:else="{{drivers[2]!=undefined}}">
+	<van-col span = "14">
+		<van-row custom-class="content">
+			驾驶人:{{drivers[2].name}}
+		</van-row>
+		<van-row custom-class="content">
+			身份证号:\n{{drivers[2].id}}
+		</van-row>
+		<van-row custom-class="content">
+			准驾车型:{{drivers[2].carClass}}
+		</van-row>
+	</van-col>
+	<van-col span = "5">
+		<van-button type = "info" custom-class = "deleteButton" bindtap="confirmDriver" data-id="2">确认</van-button>
+	</van-col>
+	<van-col span = "5">
+		<van-button type= "danger" custom-class = "deleteButton" bindtap="deleteDriver" data-id="2">删除</van-button>
+	</van-col>
+		
+	</van-cell>
+</van-cell-group>

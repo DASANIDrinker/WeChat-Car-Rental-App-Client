@@ -1,0 +1,5 @@
+/* pages/guide/guide.wxss */
+.title{
+    font-size: large;
+    color: black;
+}

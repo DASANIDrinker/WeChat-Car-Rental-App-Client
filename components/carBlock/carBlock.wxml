@@ -1,0 +1,30 @@
+<!--components/carBlock.wxml-->
+<van-cell-group inset custom-class = "group">
+    <van-cell>
+        <van-col offset = "1" span = "8">
+            <image src="../../image/swiper/东方时尚1.jpg" class="image"></image>
+        </van-col>
+        <van-col offset = "1" span = "14">
+            <van-row>
+                <!-- 通过carBlock组件绑定的navIndex="{{index}}"将导航具体位置传进来 -->
+                <view wx:for="{{blockArr[navIndex].subArray}}" wx:key="index">
+                    {{item.description}}
+                    {{navIndex}}
+                </view>
+                <!-- <view wx:for="{{blockArr}}" wx:key="index">
+                    <view wx:for="{{item.subArray}}" wx:key="index" wx:for-index = "childIndex">
+                        {{item.description}}
+                    </view>
+                </view> -->
+            </van-row>
+            <!-- <van-row>
+            
+            </van-row> -->
+        </van-col>
+        
+    </van-cell>
+    <van-cell border = "{{false}}">
+    
+    </van-cell>
+
+</van-cell-group>
